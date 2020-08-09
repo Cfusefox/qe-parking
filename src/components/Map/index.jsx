@@ -21,12 +21,16 @@ class Map extends React.Component {
             if(this.getStatus() === 0){
                 var mk = new BMap.Marker(r.point);
                 map.addOverlay(mk);
+                //todo 精确
+                _this.props.setCustomerAddress(r.address.province + r.address.city)
                 map.panTo(r.point);
                 _this.setState({
                     customerLat: r.point.lat,
                     customerLng: r.point.lng
                 })
-                map.centerAndZoom(new BMap.Point(r.point.lng, r.point.lat), 18);
+                _this.props.setCustomerLng(r.point.lng)
+                _this.props.setCustomerLat(r.point.lat)
+                map.centerAndZoom(new BMap.Point(r.point.lng, r.point.lat), 16);
                 map.enableScrollWheelZoom(true); 
             }
             else {
@@ -37,7 +41,10 @@ class Map extends React.Component {
 
 
     render() {
-        return <div id="allmap"></div>
+        return  <div className="map-wrapper">
+                    <div id="allmap"></div>
+                </div>
+         
     }
 
 }

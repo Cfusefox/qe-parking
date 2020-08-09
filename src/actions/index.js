@@ -7,6 +7,14 @@ export const setCustomerLng = (lng) => ({
     lng: lng
 })
 export const setCustomerLat = (lat) => ({
-    type: "CUSTOMER_LNG",
+    type: "CUSTOMER_LAT",
     lat: lat
+})
+export const setCustomerAddress = (customerAddress) => ({
+    type: "CUSTOMER_ADDRESS",
+    customerAddress: customerAddress
+})
+export const setDestination = (destination) => ({
+    type: "DESTINATION",
+    destination: destination
 })
